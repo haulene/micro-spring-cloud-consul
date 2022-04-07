@@ -48,6 +48,56 @@ spec:
   type: NodePort
 
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+  labels:
+    app: customer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: customer
+  template:
+    metadata:
+      labels:
+        app: customer
+    spec:
+      containers:
+      - name: customer
+        image: haulene/micro-spring-cloud-consul/customer-service:1.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: consule-host
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.host
+        - name: consule-port
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-service
+  labels:
+    app: customer-service
+    spring-boot: "true"
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080 
+    protocol: TCP
+  selector:
+    app: customer
+  type: NodePort
+
+---
 
 apiVersion: apps/v1
 kind: Deployment

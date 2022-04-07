@@ -21,3 +21,9 @@ cd ../product-service
 mvn clean package -Dmaven.test.skip=true
 eval $(minikube docker-env)
 docker build -t haulene/micro-spring-cloud-consul/product-service:1.1 .
+
+cd ../customer-service
+
+mvn clean package -Dmaven.test.skip=true
+eval $(minikube docker-env)
+docker build -t haulene/micro-spring-cloud-consul/customer-service:1.1 .
