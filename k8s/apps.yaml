@@ -1,0 +1,201 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: account
+  labels:
+    app: account
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: account
+  template:
+    metadata:
+      labels:
+        app: account
+    spec:
+      containers:
+      - name: account
+        image: haulene/micro-spring-cloud-consul/account-service:1.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: consule-host
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.host
+        - name: consule-port
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-service
+  labels:
+    app: account-service
+    spring-boot: "true"
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080 
+    protocol: TCP
+  selector:
+    app: account
+  type: NodePort
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product
+  labels:
+    app: product
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels:
+        app: product
+    spec:
+      containers:
+      - name: product
+        image: haulene/micro-spring-cloud-consul/product-service:1.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: consule-host
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.host
+        - name: consule-port
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+  labels:
+    app: product-service
+    spring-boot: "true"
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080 
+    protocol: TCP
+  selector:
+    app: product
+  type: NodePort
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+  labels:
+    app: order
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order
+        image: haulene/micro-spring-cloud-consul/order-service:1.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: consule-host
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.host
+        - name: consule-port
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  labels:
+    app: order-service
+    spring-boot: "true"
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: order
+  type: NodePort
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway
+  labels:
+    app: gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+      - name: gateway
+        image: haulene/micro-spring-cloud-consul/gateway-service:1.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: consule-host
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.host
+        - name: consule-port
+          valueFrom:
+            configMapKeyRef:
+              name: consul
+              key: consule.port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-service
+  labels:
+    app: gateway-service
+    spring-boot: "true"
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: gateway
+  type: NodePort

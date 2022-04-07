@@ -64,6 +64,11 @@ public class AccountController {
 		return repository.find(ids);
 	}
 
+	@GetMapping("/all")
+	public List<Account> listAll() {
+		return repository.findAll();
+	}
+
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") Long id) {
 		repository.delete(id);

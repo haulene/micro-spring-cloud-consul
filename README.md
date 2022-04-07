@@ -25,6 +25,15 @@
   
   ```console
   helm install consul hashicorp/consul --create-namespace --namespace micro-spring-cloud-consul --values ./k8s/heml/consul/config.yaml
+  kubectl port-forward service/consul-server --namespace micro-spring-cloud-consul 8500:8500
   ```
 
 - Install 
+  ``` console
+  sh build.sh
+  sh deploy.sh
+- Access
+  ``` console
+  kubectk get service
+  ```
+  Access ${minikube ip}:gateway-node-port/account/all,...

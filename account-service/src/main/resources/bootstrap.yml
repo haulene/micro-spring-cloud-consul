@@ -6,7 +6,8 @@ spring:
       host: 192.168.64.5
       port: 8500
       discovery:
-        instance-id: "${spring.application.name}"
+        instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
+        prefer-ip-address: true
 
 server:
-  port: 0
+  port: 8080

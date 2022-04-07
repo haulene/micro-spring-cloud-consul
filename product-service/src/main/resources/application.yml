@@ -1,3 +1,10 @@
 spring:  
   application:
     name: product-service
+  cloud:
+    consul:
+      host: ${consule-host}
+      port: ${consule-port}
+      # host: ${consule-host}
+      # port: ${consule-port}
+  output.ansi.enabled: ALWAYS
