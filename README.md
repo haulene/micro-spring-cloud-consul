@@ -37,3 +37,4 @@
   kubectk get service
   ```
   Access ${minikube ip}:gateway-node-port/account/all,...
+  

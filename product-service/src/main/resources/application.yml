@@ -5,6 +5,8 @@ spring:
     consul:
       host: ${consule-host}
       port: ${consule-port}
+      discovery:
+        deregister: true
       # host: ${consule-host}
       # port: ${consule-port}
   output.ansi.enabled: ALWAYS
