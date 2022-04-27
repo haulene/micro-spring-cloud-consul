@@ -5,7 +5,7 @@ metadata:
   labels:
     app: account
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: account
@@ -55,7 +55,7 @@ metadata:
   labels:
     app: customer
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: customer
@@ -106,7 +106,7 @@ metadata:
   labels:
     app: product
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: product
@@ -157,7 +157,7 @@ metadata:
   labels:
     app: order
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: order
@@ -208,7 +208,7 @@ metadata:
   labels:
     app: gateway
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: gateway
