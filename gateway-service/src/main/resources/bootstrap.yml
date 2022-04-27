@@ -7,6 +7,7 @@ spring:
       port: ${consule-port}
       discovery:
         deregister: true
+        enabled: true
         instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
         prefer-ip-address: true
 
