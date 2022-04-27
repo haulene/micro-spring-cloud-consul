@@ -34,7 +34,7 @@
   sh deploy.sh
 - Access
   ``` console
-  kubectk get service
+  kubectl get service
   ```
   Access ${minikube ip}:gateway-node-port/account/all,...
   

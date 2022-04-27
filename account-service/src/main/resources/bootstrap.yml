@@ -3,8 +3,8 @@ spring:
     name: account-service
   cloud:
     consul:
-      host: 192.168.64.5
-      port: 8500
+      host: ${consule-host}
+      port: ${consule-port}
       discovery:
         instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
         prefer-ip-address: true
