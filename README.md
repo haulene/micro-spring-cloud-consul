@@ -5,6 +5,10 @@
 - Spring zul gateway and spring consul
 - Deploy on kubernestes
 
+# Branches:
+- master: user consule service discovery
+- use_kubernetes-service-discovery: use kubernetes-service-discovery and consule service mesh
+
 # Refs  
 - https://piotrminkowski.com/2019/11/06/microservices-with-spring-boot-spring-cloud-gateway-and-consul-cluster/
 - https://github.com/hashicorp-demoapp
