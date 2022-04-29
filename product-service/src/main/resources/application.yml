@@ -1,4 +1,8 @@
 spring:  
+  cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
   application:
     name: product-service
   output.ansi.enabled: ALWAYS

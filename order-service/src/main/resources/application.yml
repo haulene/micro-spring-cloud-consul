@@ -1,4 +1,8 @@
 spring:  
+  cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
   application:
     name: order-service
   output.ansi.enabled: ALWAYS

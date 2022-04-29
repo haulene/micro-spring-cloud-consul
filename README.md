@@ -20,16 +20,17 @@
 - Install minikube
 - Create name space
   ```console
-  kubectl create namespace micro-spring-cloud-consul
+  <!-- kubectl create namespace micro-spring-cloud-consul -->
   ```
 - Label the namespace(s), where you would like to enable Consul Service Mesh.
   ```
-  kubectl label namespace micro-spring-cloud-consul connect-inject=enabled
-- Install consul in to micro-spring-cloud-consul name space
+  kubectl label namespace default connect-inject=enabled
+  kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceaccount=default:default
+- Install consul in to default name space
   
   ```console
-  helm install consul hashicorp/consul --create-namespace --namespace micro-spring-cloud-consul --values ./k8s/heml/consul/config.yaml
-  kubectl port-forward service/consul-server --namespace micro-spring-cloud-consul 8500:8500
+  helm install consul hashicorp/consul --namespace default --values ./k8s/heml/consul/config.yaml
+  kubectl port-forward service/consul-server --namespace default 8500:8500
   ```
 
 - Install 

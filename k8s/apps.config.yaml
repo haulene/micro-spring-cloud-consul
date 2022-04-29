@@ -4,4 +4,4 @@ metadata:
   name: consul
 data:
   consule.port: "8500"
-  consule.host: "192.168.64.6"
+  consule.host: "192.168.64.7"

@@ -2,12 +2,15 @@ spring:
   application:
     name: gateway-service
   cloud:
+    kubernetes:
+      secrets:
+        enableApi: true
     consul:
       host: ${consule-host}
       port: ${consule-port}
       discovery:
         deregister: true
-        enabled: true
+        enabled: false
         instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
         prefer-ip-address: true
 

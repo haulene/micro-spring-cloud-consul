@@ -2,11 +2,14 @@ spring:
   application:
     name: product-service
   cloud:
+    kubernetes:
+      secrets:
+        enableApi: true
     consul:
       host: ${consule-host}
       port: ${consule-port}
       discovery:
-        enabled: true
+        enabled: false
         instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
         prefer-ip-address: true
 

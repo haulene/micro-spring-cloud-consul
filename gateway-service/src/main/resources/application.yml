@@ -1,7 +1,10 @@
-spring:  
+spring:
   application:
     name: gateway-service
   cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
     gateway:
       discovery:
         locator:

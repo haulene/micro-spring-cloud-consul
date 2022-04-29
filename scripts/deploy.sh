@@ -1,5 +1,5 @@
 cd ../k8s
-kubectl config set-context --current --namespace=micro-spring-cloud-consul
+kubectl config set-context --current --namespace=default
 kubectl delete service account-service
 kubectl delete service gateway-service
 kubectl delete service product-service
