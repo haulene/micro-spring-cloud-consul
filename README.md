@@ -10,7 +10,10 @@
 - use_kubernetes-service-discovery: use kubernetes-service-discovery and consule service mesh
 
 # Refs  
-- https://piotrminkowski.com/2019/11/06/microservices-with-spring-boot-spring-cloud-gateway-and-consul-cluster/
+- https://github.com/AndriyKalashnykov/spring-microservices-k8s/tree/master
+- https://piotrminkowski.com/2020/09/10/spring-cloud-kubernetes-load-balancer-guide/
+- https://tanzu.vmware.com/developer/guides/app-enhancements-spring-k8s/
+- https://github.com/piomin/sample-spring-microservices-kubernetes/tree/hybrid
 - https://github.com/hashicorp-demoapp
 - https://learn.hashicorp.com/tutorials/consul/kubernetes-consul-design-patterns?in=consul/microservices
 - https://github.com/piomin/sample-spring-cloud-consul

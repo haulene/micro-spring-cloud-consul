@@ -5,13 +5,13 @@ spring:
     kubernetes:
       secrets:
         enableApi: true
-    consul:
-      host: ${consule-host}
-      port: ${consule-port}
-      discovery:
-        enabled: false
-        instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
-        prefer-ip-address: true
+    # consul:
+    #   host: ${consule-host}
+    #   port: ${consule-port}
+    #   discovery:
+    #     enabled: false
+    #     instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
+    #     prefer-ip-address: true
 
 server:
   port: 8080
